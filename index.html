@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>持続化補助金 経営計画書 下書きメーカー（無料・登録不要）</title>
+<meta name="description" content="小規模事業者持続化補助金の経営計画書・補助事業計画書の下書きを、質問に答えるだけで作成。文字数チェック、補助額計算、セルフチェック付き。入力内容はブラウザ内だけに保存されます。">
+<style>
+:root{--c:#1f6feb;--bg:#f6f8fa;--b:#d0d7de;--ok:#1a7f37;--ng:#cf222e}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI",sans-serif;background:var(--bg);color:#1f2328;line-height:1.7}
+header{background:#fff;border-bottom:1px solid var(--b);padding:16px}header h1{margin:0;font-size:1.3rem}header p{margin:4px 0 0;font-size:.9rem;color:#57606a}
+main{max-width:1200px;margin:auto;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+section{background:#fff;border:1px solid var(--b);border-radius:8px;padding:16px}
+h2{font-size:1.05rem;margin:20px 0 8px;border-left:4px solid var(--c);padding-left:8px}h2:first-child{margin-top:0}
+label{display:block;font-weight:600;font-size:.9rem;margin-top:12px}small{color:#57606a;font-weight:400}
+input,textarea,select{width:100%;padding:8px;border:1px solid var(--b);border-radius:6px;font:inherit}
+textarea{min-height:70px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{border:1px solid var(--b);padding:4px}td input{border:0}
+button{background:var(--c);color:#fff;border:0;border-radius:6px;padding:8px 14px;font:inherit;cursor:pointer;margin:4px 4px 0 0}
+button.sub{background:#fff;color:var(--c);border:1px solid var(--c)}
+#out{white-space:pre-wrap;font-size:.92rem;background:#fbfbfb;border:1px solid var(--b);border-radius:6px;padding:12px;max-height:60vh;overflow:auto}
+.chk{padding-left:0}.chk li{list-style:none}.ok{color:var(--ok)}.ng{color:var(--ng)}
+.note{font-size:.82rem;color:#57606a;background:#fff8c5;border:1px solid #d4a72c;border-radius:6px;padding:8px;margin-top:8px}
+footer{text-align:center;font-size:.8rem;color:#57606a;padding:24px}
+.sticky{position:sticky;top:8px}
+</style>
+</head>
+<body>
+<header>
+<h1>持続化補助金 経営計画書 下書きメーカー</h1>
+<p>質問に答えるだけで「経営計画書」「補助事業計画書」の下書きを自動作成。登録不要・無料。入力内容はあなたのブラウザ内にのみ保存され、外部に送信されません。</p>
+</header>
+<main>
+<section>
+<h2>1. 企業概要</h2>
+<label>事業者名 <input id="name" placeholder="例：カフェ・ひだまり"></label>
+<label>業種 <select id="ind"><option>飲食業</option><option>小売業</option><option>サービス業（美容・理容）</option><option>サービス業（その他）</option><option>製造業</option><option>建設業</option><option>宿泊業</option><option>士業・コンサル</option><option>その他</option></select></label>
+<label>所在地（市区町村） <input id="area" placeholder="例：長野県松本市"></label>
+<label>創業年 <input id="since" type="number" placeholder="例：2015"></label>
+<label>従業員数（常時使用） <input id="staff" type="number" placeholder="例：2"></label>
+<label>主な商品・サービスと売上構成 <small>（例：ランチ60%、カフェ30%、物販10%）</small><textarea id="prod"></textarea></label>
+<label>直近の年間売上高（万円） <input id="sales" type="number" placeholder="例：1200"></label>
+<h2>2. 顧客ニーズと市場の動向</h2>
+<label>主な顧客層 <small>（年齢・地域・利用シーン）</small><textarea id="cust" placeholder="例：近隣の30〜50代女性、平日ランチ利用が中心"></textarea></label>
+<label>顧客が求めていること・最近の変化 <textarea id="needs" placeholder="例：テイクアウト需要の増加、SNSで店を探す人が増えている"></textarea></label>
+<label>競合・市場の状況 <textarea id="market" placeholder="例：半径1km内にチェーン店2店。個性ある個人店は少ない"></textarea></label>
+<h2>3. 自社の強み</h2>
+<label>強み <small>（数字・実績を必ず入れる）</small><textarea id="str" placeholder="例：地元野菜を使った手作りランチ。Googleレビュー4.6（120件）"></textarea></label>
+<label>課題・弱み <textarea id="weak" placeholder="例：新規客への認知が低く、来店客の8割が常連"></textarea></label>
+<h2>4. 経営方針・目標</h2>
+<label>今後の方針 <textarea id="policy" placeholder="例：テイクアウトと物販を強化し、雨天・平日夕方の売上を底上げする"></textarea></label>
+<label>3年後の年間売上目標（万円） <input id="goal" type="number" placeholder="例：1500"></label>
+<h2>5. 補助事業の内容</h2>
+<label>補助事業名 <small>（30字以内推奨）</small><input id="pname" placeholder="例：テイクアウト窓口設置とSNS集客による新規顧客獲得"></label>
+<label>具体的な取組内容 <small>（何を・いつ・どうやって）</small><textarea id="plan" style="min-height:110px" placeholder="例：①店頭にテイクアウト窓口を設置 ②Instagram広告で半径3kmに告知 ③チラシ3,000部をポスティング"></textarea></label>
+<label>業務効率化の取組（任意） <textarea id="eff" placeholder="例：モバイルオーダー導入で注文受付時間を1日30分削減"></textarea></label>
+<label>新規顧客の増加見込み（月・人） <input id="newc" type="number" placeholder="例：60"></label>
+<label>客単価（円） <input id="unit" type="number" placeholder="例：1200"></label>
+<h2>6. 経費明細</h2>
+<table><thead><tr><th>経費区分</th><th>内容</th><th>税抜金額(円)</th><th></th></tr></thead><tbody id="exp"></tbody></table>
+<button class="sub" id="addbtn">＋ 行を追加</button>
+<label>補助率 <select id="rate"><option value="0.6667">2/3（通常）</option><option value="0.75">3/4（一部特例）</option></select></label>
+<label>補助上限額（円） <input id="cap" type="number" value="500000"></label>
+<div class="note">補助率・上限額・対象経費は公募回・申請枠により異なります。必ず最新の公募要領で確認してください。</div>
+</section>
+<section><div class="sticky">
+<h2>採択に近づくセルフチェック</h2>
+<ul class="chk" id="chk"></ul>
+<h2>下書きプレビュー</h2>
+<button id="copybtn">コピー</button><button class="sub" id="dlbtn">テキスト保存</button><button class="sub" id="resetbtn">リセット</button>
+<div id="out" style="margin-top:8px"></div>
+<div class="note">本ツールは下書き作成の補助です。生成文をそのまま提出せず、ご自身の言葉で具体的に加筆してください。最終確認は商工会・商工会議所や専門家への相談をおすすめします。</div>
+</div></section>
+</main>
+<footer>入力データはこの端末のブラウザ（localStorage）にのみ保存されます。本ツールは公的機関とは関係ありません。</footer>
+<script>
+var K="hojokin-draft-v1";
+var ids=["name","ind","area","since","staff","prod","sales","cust","needs","market","str","weak","policy","goal","pname","plan","eff","newc","unit","rate","cap"];
+var cats=["広報費","ウェブサイト関連費","機械装置等費","展示会等出展費","旅費","新商品開発費","借料","委託・外注費"];
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s).replace(/[&"<>]/g,function(c){return {"&":"&amp;","\"":"&quot;","<":"&lt;",">":"&gt;"}[c]})}
+function v(id){return ($(id).value||"").trim()}
+function yen(n){return Math.round(n).toLocaleString("ja-JP")}
+function addRow(r){r=r||{c:"広報費",d:"",a:""};var tr=document.createElement("tr");
+ var opts=cats.map(function(c){return "<option"+(c===r.c?" selected":"")+">"+c+"</option>"}).join("");
+ tr.innerHTML="<td><select>"+opts+"</select></td><td><input value=\""+esc(r.d)+"\"></td><td><input type=\"number\" value=\""+esc(r.a)+"\"></td><td><button class=\"sub\" style=\"padding:2px 8px\">×</button></td>";
+ tr.querySelector("button").onclick=function(){tr.remove();upd()};
+ tr.querySelectorAll("input,select").forEach(function(e){e.oninput=upd});
+ $("exp").appendChild(tr);upd()}
+function rows(){return Array.prototype.map.call($("exp").querySelectorAll("tr"),function(t){var i=t.querySelectorAll("input");return {c:t.querySelector("select").value,d:i[0].value,a:+i[1].value||0}})}
+function X(s,f){return s?s:"【"+f+"を入力してください】"}
+function gen(){
+ var y=new Date().getFullYear(),age=v("since")?y-(+v("since")):null,R=rows();
+ var tot=R.reduce(function(s,r){return s+r.a},0);
+ var sub=Math.min(Math.floor(tot*(+v("rate"))),+v("cap")||0);
+ var inc=(+v("newc")||0)*(+v("unit")||0)*12/10000;
+ var L=[];
+ L.push("■ 経営計画書","","1. 企業概要");
+ L.push("当社（"+X(v("name"),"事業者名")+"）は、"+X(v("area"),"所在地")+"で"+v("ind")+"を営む小規模事業者である。"+(age!==null?v("since")+"年の創業以来"+age+"年間にわたり地域に根ざした事業を展開しており、":"")+"常時使用する従業員は"+(v("staff")||"〇")+"名である。");
+ L.push("主な商品・サービスと売上構成は以下のとおり。",X(v("prod"),"主な商品・サービス"));
+ if(v("sales"))L.push("直近の年間売上高は約"+yen(+v("sales"))+"万円である。");
+ L.push("","2. 顧客ニーズと市場の動向","（1）主な顧客層",X(v("cust"),"主な顧客層"),"（2）顧客ニーズの変化",X(v("needs"),"顧客ニーズ"),"（3）市場・競合の状況",X(v("market"),"競合・市場の状況"));
+ L.push("","3. 自社や自社の提供する商品・サービスの強み",X(v("str"),"強み"),"一方で、"+X(v("weak"),"課題")+"という課題を抱えている。");
+ L.push("","4. 経営方針・目標と今後のプラン","上記の強みを活かしつつ課題を解消するため、"+X(v("policy"),"今後の方針")+"を経営方針とする。");
+ L.push(v("goal")?"具体的な目標として、3年後に年間売上高"+yen(+v("goal"))+"万円"+(v("sales")?"（現状比"+Math.round((+v("goal")/+v("sales")-1)*100)+"%増）":"")+"を目指す。":"【3年後の数値目標を入力してください】");
+ L.push("","■ 補助事業計画書","","1. 補助事業で行う事業名",X(v("pname"),"補助事業名"));
+ var w=v("weak");
+ L.push("","2. 販路開拓等の取組内容",X(v("plan"),"具体的な取組内容"),"本取組により、"+(w?"「"+w.slice(0,40)+(w.length>40?"…":"")+"」という課題":"上記の課題")+"を解消し、新たな顧客層への販路開拓を図る。");
+ L.push("","【経費の内訳】");
+ if(R.length)R.forEach(function(r){L.push("・"+r.c+"："+(r.d||"（内容）")+"　"+yen(r.a)+"円")});else L.push("（経費明細を入力してください）");
+ L.push("補助対象経費合計："+yen(tot)+"円（税抜）／補助金申請額："+yen(sub)+"円");
+ L.push("","3. 業務効率化（生産性向上）の取組内容",v("eff")||"（該当する場合に記入）");
+ L.push("","4. 補助事業の効果",(v("newc")?"本事業により月間約"+v("newc")+"人の新規顧客獲得を見込む。":"【新規顧客の増加見込みを入力してください】")+(inc?"客単価"+yen(+v("unit"))+"円で換算すると、年間約"+inc.toFixed(1)+"万円の売上増加が期待できる。":""));
+ L.push("また、新規顧客のリピート化により経営方針に掲げた目標の達成を図るとともに、地域経済の活性化に貢献する。");
+ return {t:L.join("\n"),tot:tot}}
+function check(o){var c=[["事業名が30字以内",v("pname")&&v("pname").length<=30],["強みに数字・実績が含まれている",/\d/.test(v("str"))],["3年後の売上目標を数値で設定",!!v("goal")],["効果を数値（人数×単価）で示している",!!(v("newc")&&v("unit"))],["顧客ニーズと取組内容を両方記入",v("needs").length>10&&v("plan").length>20],["取組内容が具体的（80字以上）",v("plan").length>=80],["経費明細を入力済み",o.tot>0],["競合・市場の状況を記入",v("market").length>10]];
+ var n=c.filter(function(x){return x[1]}).length;
+ $("chk").innerHTML=c.map(function(x){return "<li class=\""+(x[1]?"ok":"ng")+"\">"+(x[1]?"✅":"⬜")+" "+x[0]+"</li>"}).join("")+"<li><b>"+n+"/"+c.length+" 項目クリア</b></li>"}
+function upd(){var o=gen();$("out").textContent=o.t;check(o);var s={};ids.forEach(function(i){s[i]=$(i).value});s.rows=rows();try{localStorage.setItem(K,JSON.stringify(s))}catch(e){}}
+$("addbtn").onclick=function(){addRow()};
+$("copybtn").onclick=function(){navigator.clipboard.writeText($("out").textContent).then(function(){alert("コピーしました")})};
+$("dlbtn").onclick=function(){var b=new Blob([$("out").textContent],{type:"text/plain"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="経営計画書_下書き.txt";a.click()};
+$("resetbtn").onclick=function(){if(confirm("入力内容を消去しますか？")){localStorage.removeItem(K);location.reload()}};
+var saved=null;try{saved=JSON.parse(localStorage.getItem(K)||"null")}catch(e){}
+if(saved){ids.forEach(function(i){if(saved[i]!=null)$(i).value=saved[i]});(saved.rows||[]).forEach(addRow)}else{addRow({c:"広報費",d:"チラシ作成・印刷",a:""});addRow({c:"ウェブサイト関連費",d:"",a:""})}
+ids.forEach(function(i){$(i).addEventListener("input",upd)});upd();
+</script>
+</body>
+</html>
